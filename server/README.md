@@ -1,4 +1,4 @@
-# WireBarley-Assignment(와이어바알리 과제)
+# WireBarley-Assignment-Server(와이어바알리 과제 서버) 
 
 ## 개발 환경
 Framework : Spring Boot 2.6.3
