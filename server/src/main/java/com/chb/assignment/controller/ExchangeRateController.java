@@ -2,6 +2,7 @@ package com.chb.assignment.controller;
 
 import com.chb.assignment.service.ExchangeRateService;
 import com.chb.assignment.service.dto.ApiResultDTO;
+import com.chb.assignment.service.dto.ExchangeParamDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class ExchangeRateController {
     private final ExchangeRateService service;
 
     @GetMapping
-    public ResponseEntity<Object> getExchangeRate() {
-        ApiResultDTO result = service.getData();
+    public ResponseEntity<Object> getExchangeRate(ExchangeParamDTO param) {
+        ApiResultDTO result = service.getData(param);
         return ResponseEntity.status(HttpStatus.OK).body(result.getQuotes());
     }
 }
