@@ -1,4 +1,4 @@
-package com.chb.assignment.config;
+package com.chb.assignment.infrastructure.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

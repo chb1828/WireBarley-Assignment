@@ -1,4 +1,4 @@
-package com.chb.assignment.exception;
+package com.chb.assignment.infrastructure.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

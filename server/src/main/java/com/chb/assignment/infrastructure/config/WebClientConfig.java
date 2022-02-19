@@ -1,4 +1,4 @@
-package com.chb.assignment.config;
+package com.chb.assignment.infrastructure.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.chb.assignment.exception;
+package com.chb.assignment.infrastructure.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
