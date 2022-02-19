@@ -11,3 +11,6 @@
 gradle build
 gradle bootrun
 ```
+
+## NOTICE
+application.yml 에서 자신의 accessKey로 변경 하십시오

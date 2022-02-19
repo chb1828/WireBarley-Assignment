@@ -16,3 +16,9 @@
 
 ### 개별 실행
 개별 실행은 해당 폴더의 README.MD를 참조하십시오
+
+## 테스트 방법
+[http://localhost:3000](http://localhost:3000)에 접속 하십시오.
+
+### 종료
+> docker-compose down -v
