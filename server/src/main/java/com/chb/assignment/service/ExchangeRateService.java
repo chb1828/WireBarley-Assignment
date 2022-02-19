@@ -7,11 +7,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class ExchangeRateService {
 
     private final WebClient webClient;
+    //Api 실패를 대비해서 최근 값을 Map에 저장해 놓는다.
+    private Map<String,Double> dataMap = new HashMap<>();
 
     /**
      * 외부 api로부터 Data를 가져옵니다.
@@ -27,6 +32,7 @@ public class ExchangeRateService {
 
     /**
      * 외부 api 결과에서 필요한 값만 추출한다.
+     * 자주 호출할 시에 실패하는 경우가 있어, 실패시 맵에 저장한 값을 가져온다.
      * @param apiResultDTO 외부 api 결과값
      * @param paramDTO 가져올 파라미터
      * @return
@@ -35,15 +41,30 @@ public class ExchangeRateService {
         double result = 0.0;
         switch (paramDTO) {
             case KRW: {
-                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdKrw());
+                if(!apiResultDTO.isSuccess()) {
+                    result = dataMap.get("usdKrw");
+                }else {
+                    result = getDecimalPoint(apiResultDTO.getQuotes().getUsdKrw());
+                    dataMap.put("usdKrw",result);
+                }
                 break;
             }
             case JPY: {
-                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdJpy());
+                if(!apiResultDTO.isSuccess()) {
+                    result = dataMap.get("usdJpy");
+                }else {
+                    result = getDecimalPoint(apiResultDTO.getQuotes().getUsdJpy());
+                    dataMap.put("usdJpy",result);
+                }
                 break;
             }
             case PHP: {
-                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdPhp());
+                if(!apiResultDTO.isSuccess()) {
+                    result = dataMap.get("usdPhp");
+                }else {
+                    result = getDecimalPoint(apiResultDTO.getQuotes().getUsdPhp());
+                    dataMap.put("usdPhp",result);
+                }
                 break;
             }
         }
