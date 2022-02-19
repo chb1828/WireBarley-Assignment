@@ -1,7 +1,7 @@
 # WireBarley-Assignment-Client(와이어바알리 과제 클라이언트)
 
 ## 개발 환경
-Framework : Next.js (12.1.0)
+##### Framework : Next.js (12.1.0)
 
 ## Getting Started
 
