@@ -33,17 +33,14 @@ public class ExchangeRateServiceTest {
 
         double expectResult = 100.0;
 
-        ExchangeRateDTO exchangeRateDTO = ExchangeRateDTO.builder()
-                .usdJpy(100.0)
-                .usdKrw(1000.0)
-                .usdPhp(10.0)
-                .build();
+        ExchangeRateDTO exchangeRateDTO = new ExchangeRateDTO();
+        exchangeRateDTO.setUsdJpy(100.0);
+        exchangeRateDTO.setUsdKrw(1000.0);
+        exchangeRateDTO.setUsdPhp(10.0);
 
-        ApiResultDTO apiResult = ApiResultDTO.builder()
-                .success(true)
-                .quotes(exchangeRateDTO)
-                .build();
-
+        ApiResultDTO apiResult = new ApiResultDTO();
+        apiResult.setSuccess(true);
+        apiResult.setQuotes(exchangeRateDTO);
 
         WebClient.RequestHeadersUriSpec requestHeadersUriSpec = Mockito.mock(WebClient.RequestHeadersUriSpec.class);
         WebClient.ResponseSpec responseSpec = Mockito.mock(WebClient.ResponseSpec.class);

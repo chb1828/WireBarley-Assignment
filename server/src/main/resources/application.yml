@@ -1,4 +1,4 @@
 com:
   chb:
     assignment:
-      accessKey: ea876b352e811c426487828d114c33ab
+      accessKey: ${API_KEY:77e7e8f5f9666dc4528122342b251327}
