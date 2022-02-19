@@ -22,7 +22,6 @@ export default function Home() {
         }
         let value = calc(apiResult,number);
         setResult(value);
-
     }
 
     const calc = (apiResult, number) => {
@@ -31,21 +30,20 @@ export default function Home() {
 
     //useEffect는 비동기적으로 동작
     useEffect(() => {
-        let completed = false; //초기에는 실행해야 되기때문에 false flag 변수
 
         //query를 리턴하는 함수를 result에 할당
         async function get() {
             const result = await axios.get(
                 `/api?param=${country}`
             );
-            if (!completed) setApiResult(result.data);
+            setApiResult(result.data);
         }
         get().catch(function(error) {
             console.log(error);
         });
-        return () => {
+/*        return () => {
             completed = true;
-        };
+        };*/
 
     }, [country]);
 
