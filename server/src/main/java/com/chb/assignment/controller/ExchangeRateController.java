@@ -19,7 +19,7 @@ public class ExchangeRateController {
 
     @GetMapping
     public ResponseEntity<Object> getExchangeRate(ExchangeParamDTO param) {
-        ApiResultDTO result = service.getData(param);
-        return ResponseEntity.status(HttpStatus.OK).body(result.getQuotes());
+        double result = service.getData(param);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 }

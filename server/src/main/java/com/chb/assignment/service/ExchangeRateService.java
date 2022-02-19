@@ -26,16 +26,21 @@ public class ExchangeRateService {
     }
 
     private double getValue(ApiResultDTO apiResultDTO, ExchangeParamDTO paramDTO) {
+        double result = 0.0;
         switch (paramDTO) {
             case KRW: {
-               return apiResultDTO.getQuotes().getUsdKrw();
+                result = apiResultDTO.getQuotes().getUsdKrw();
+                break;
             }
             case JPY: {
-                return apiResultDTO.getQuotes().getUsdJpy();
+                result = apiResultDTO.getQuotes().getUsdJpy();
+                break;
             }
             case PHP: {
-                return apiResultDTO.getQuotes().getUsdPhp();
+                result = apiResultDTO.getQuotes().getUsdPhp();
+                break;
             }
         }
+        return result;
     }
 }
