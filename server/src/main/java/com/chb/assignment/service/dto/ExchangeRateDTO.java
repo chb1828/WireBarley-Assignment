@@ -1,0 +1,17 @@
+package com.chb.assignment.service.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+@Data
+public class ExchangeRateDTO {
+
+    @JsonProperty("USDKRW")
+    private double usdKrw;
+
+    @JsonProperty("USDJPY")
+    private double usdJpy;
+
+    @JsonProperty("USDPHP")
+    private double usdPhp;
+}
