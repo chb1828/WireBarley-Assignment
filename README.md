@@ -1,5 +1,9 @@
 # WireBarley-Assignment(와이어바알리 과제)
 
-## 개발 환경
-Framework : Spring Boot 2.6.3
-Java Version : OpenJdk 1.8(Java 8)
+## 구조
+- Server(Spring Boot)
+- Client(Next.js)
+
+## Notice
+위의 두가지 모듈을 실행해야 합니다.
+실행 방법은 각각 해당 폴더의 README를 참조 하십시오.
