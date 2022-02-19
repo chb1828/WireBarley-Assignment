@@ -22,25 +22,40 @@ public class ExchangeRateService {
                 .retrieve()
                 .bodyToMono(ApiResultDTO.class);
         ApiResultDTO apiResult = response.block();
-        return getValue(apiResult,parameterDTO);
+        return getValueFromParameter(apiResult,parameterDTO);
     }
 
-    private double getValue(ApiResultDTO apiResultDTO, ExchangeParamDTO paramDTO) {
+    /**
+     * 외부 api 결과에서 필요한 값만 추출한다.
+     * @param apiResultDTO 외부 api 결과값
+     * @param paramDTO 가져올 파라미터
+     * @return
+     */
+    private double getValueFromParameter (ApiResultDTO apiResultDTO, ExchangeParamDTO paramDTO) {
         double result = 0.0;
         switch (paramDTO) {
             case KRW: {
-                result = apiResultDTO.getQuotes().getUsdKrw();
+                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdKrw());
                 break;
             }
             case JPY: {
-                result = apiResultDTO.getQuotes().getUsdJpy();
+                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdJpy());
                 break;
             }
             case PHP: {
-                result = apiResultDTO.getQuotes().getUsdPhp();
+                result = getDecimalPoint(apiResultDTO.getQuotes().getUsdPhp());
                 break;
             }
         }
         return result;
+    }
+
+    /**
+     * 소수점 2개까지만 보여준다.
+     * @param parameter
+     * @return
+     */
+    private double getDecimalPoint(double parameter) {
+        return Math.round(parameter * 100) / 100.0;
     }
 }
