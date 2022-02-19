@@ -16,8 +16,13 @@ export default function Home() {
     const onSubmit = e => {
         e.preventDefault();
         let number = e.target[0].value;
+        if(!number || Number(number) < 0 || Number(number) > 10000) {
+           alert("송금액이 바르지 않습니다");
+           return;
+        }
         let value = calc(apiResult,number);
         setResult(value);
+
     }
 
     const calc = (apiResult, number) => {
@@ -57,7 +62,7 @@ export default function Home() {
                   <option value="php">필리핀(PHP)</option>
               </select>
           </div>
-        <p>환율: {apiResult} {country}/USD</p>
+        <p>환율: {apiResult} {country.toUpperCase()}/USD</p>
         <div>
             <form onSubmit={onSubmit}>
                 <span>송금액: </span><input type="number" name="number"/><span><strong>USD</strong></span><br/>
