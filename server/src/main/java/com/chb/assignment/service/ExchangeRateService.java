@@ -12,6 +12,10 @@ public class ExchangeRateService {
 
     private final WebClient webClient;
 
+    /**
+     * 외부 api로부터 Data를 가져옵니다.
+     * @return
+     */
     public ApiResultDTO getData() {
         Mono<ApiResultDTO> result = webClient.get()
                 .retrieve()

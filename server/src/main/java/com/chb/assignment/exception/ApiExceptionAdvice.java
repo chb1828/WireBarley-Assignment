@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ApiExceptionAdvice {
 
-    //예제로 모든 Exception을 받는 핸들러를 생성합니다.
+    /**
+     * 모든 Exception을 받는 핸들러를 생성합니다.
+     * @param e
+     * @return
+     */
     @ExceptionHandler({Exception.class})
     public ResponseEntity<ApiExceptionResponse> exceptionHandler(final Exception e) {
         return ResponseEntity
@@ -17,4 +21,5 @@ public class ApiExceptionAdvice {
                         .errorMessage(e.getMessage())
                         .build());
     }
+
 }
