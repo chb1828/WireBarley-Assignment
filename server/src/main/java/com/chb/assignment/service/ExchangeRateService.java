@@ -31,7 +31,7 @@ public class ExchangeRateService {
      * @param paramDTO 가져올 파라미터
      * @return
      */
-    private double getValueFromParameter (ApiResultDTO apiResultDTO, ExchangeParamDTO paramDTO) {
+    private double getValueFromParameter(ApiResultDTO apiResultDTO, ExchangeParamDTO paramDTO) {
         double result = 0.0;
         switch (paramDTO) {
             case KRW: {
