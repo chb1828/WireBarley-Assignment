@@ -1,7 +1,6 @@
 package com.chb.assignment.controller;
 
 import com.chb.assignment.service.ExchangeRateService;
-import com.chb.assignment.service.dto.ApiResultDTO;
 import com.chb.assignment.service.dto.ExchangeParamDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
